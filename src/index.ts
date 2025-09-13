@@ -1,69 +1,29 @@
-interface Person {
-    name: string,
-    age:number     
+interface Persona {
+    name: string;
+    age: number;
+    email: string;
 }
 
-let x: Person
-x = {
-    name: "Driss",
-    age: 20,
+interface PersonaWithoutEmail extends Omit<Persona, "email" | "age">{};
+const p: PersonaWithoutEmail = {
+    name: "Driss"
 }
 
-type Mytype = {
-    name: string,
-    age?: number,
-    married: boolean
+interface PersonaWithNameOnly extends Pick<Persona, "name">{};
+const p2: PersonaWithNameOnly = {
+    name: "Salma"
 }
+interface OptionalPerson extends Partial<Persona>{};
 
-let wx: Mytype 
-wx = {
-    name: "Driss Nafii",
-    age: 19,
-    married: false
-}
-
-
-
-
-
-console.log(wx.age);
-
-const myNumber: number = wx.age ?? 0;
-
-export enum BookingStatus {
-    initial = "initial",
-    paid = "paid",
-    cancelled = "cancelled"
-}
-
-let bookingStatus:BookingStatus = BookingStatus.initial;
-
-bookingStatus = BookingStatus.paid;
-
-if (bookingStatus == BookingStatus.paid) {
-     
+const p3: OptionalPerson = {
+    age: 77
 }
 
 interface ICar {
-    model:string;
-    year:number;
+    name: string;
+    model?: string;
+}  
 
-    sayHello: () => void;
-};
+interface RequiredCar extends Required<ICar>{};
 
-class Car implements ICar {
-    model:string;
-    year:number;
-
-    constructor(model:string, year:number) {
-        this.model = model;
-        this.year = year;
-    }
-
-    sayHello = () => {
-        return "Hello";
-    }
-}
-
-const myCar = new Car("BMW", 9999);
-myCar.sayHello;
+const car2: RequiredCar
