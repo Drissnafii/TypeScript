@@ -3,7 +3,7 @@ interface Persona {
     age: number;
     email: string;
 }
-
+    
 interface PersonaWithoutEmail extends Omit<Persona, "email" | "age">{};
 const p: PersonaWithoutEmail = {
     name: "Driss"
