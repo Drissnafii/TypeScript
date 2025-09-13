@@ -16,7 +16,7 @@ const p2: PersonaWithNameOnly = {
 interface OptionalPerson extends Partial<Persona>{};
 
 const p3: OptionalPerson = {
-    age: 77
+    age: 77 
 }
 
 interface ICar {
