@@ -1,6 +1,6 @@
 interface Person {
     name: string,
-    age:number      
+    age:number     
 }
 
 let x: Person
@@ -9,9 +9,25 @@ x = {
     age: 20,
 }
 
-type Mytype = boolean|string;
+type Mytype = {
+    name: string,
+    age?: number,
+    married: boolean
+}
 
 let wx: Mytype 
 let wc: Mytype 
 
-wx = true
+wx = {
+    name: "Driss Nafii",
+    age: 19,
+    married: false
+}
+
+
+
+
+
+console.log(wx.age);
+
+
